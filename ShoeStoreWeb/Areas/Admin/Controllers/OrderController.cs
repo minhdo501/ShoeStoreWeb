@@ -115,7 +115,7 @@ namespace ShoeStoreWeb.Areas.Admin.Controllers
             orderHEaderFromDb.PhoneNumber = OrderVM.OrderHeader.PhoneNumber;
             orderHEaderFromDb.StreetAddress = OrderVM.OrderHeader.StreetAddress;
             orderHEaderFromDb.City = OrderVM.OrderHeader.City;
-            orderHEaderFromDb.State = OrderVM.OrderHeader.State;
+            //orderHEaderFromDb.State = OrderVM.OrderHeader.State;
             orderHEaderFromDb.PostalCode = OrderVM.OrderHeader.PostalCode;
             if (OrderVM.OrderHeader.Carrier != null)
             {

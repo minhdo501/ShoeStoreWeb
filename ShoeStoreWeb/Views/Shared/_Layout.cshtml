@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>@ViewData["Title"] - BulkyBookWeb</title>
+	<title>@ViewData["Title"] - ShoeStoreWeb</title>
 	<link rel="stylesheet" href="~/css/bootswatchTheme.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
@@ -15,9 +15,9 @@
 </head>
 <body>
 	<header>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Navbar</a>
+				<a class="navbar-brand" asp-area="Customer" asp-controller="Home" asp-action="Index">ShoeStore</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -33,10 +33,10 @@
 								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Content Managment</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
-									<a class="dropdown-item" asp-area="Admin" asp-controller="CoverType" asp-action="Index">Cover Type</a>
+									<a class="dropdown-item" asp-area="Admin" asp-controller="ShoeType" asp-action="Index">Shoe Type</a>
 									<a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">Company</a>
+									@*<div class="dropdown-divider"></div>
+									<a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">Company</a>*@
 									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Create User</a>
 								</div>
@@ -73,9 +73,9 @@
 		</main>
 	</div>
 
-	<footer class="footer text-muted bg-primary">
+	<footer class="footer text-muted bg-light" style="position: absolute; bottom: 0; height: 30px; width: 100%;">
 		<div class="container">
-			&copy; 2021 - BulkyBookWeb
+			&copy; 2022 - ShoeStore
 		</div>
 	</footer>
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>

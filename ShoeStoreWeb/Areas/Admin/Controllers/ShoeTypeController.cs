@@ -7,18 +7,18 @@ using ShoeStore.Utility;
 namespace ShoeStoreWeb.Controllers;
 [Area("Admin")]
 [Authorize(Roles = SD.Role_Admin)]
-public class CoverTypeController : Controller
+public class ShoeTypeController : Controller
 {
     private readonly IUnitOfWork _unitOfWork;
 
-    public CoverTypeController(IUnitOfWork unitOfWork)
+    public ShoeTypeController(IUnitOfWork unitOfWork)
     {
         _unitOfWork= unitOfWork;
     }
 
     public IActionResult Index()
     {
-        IEnumerable<CoverType> objCoverTypeList = _unitOfWork.CoverType.GetAll();
+        IEnumerable<ShoeType> objCoverTypeList = _unitOfWork.ShoeType.GetAll();
         return View(objCoverTypeList);
     }
 
@@ -31,11 +31,11 @@ public class CoverTypeController : Controller
     //POST
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Create(CoverType obj)
+    public IActionResult Create(ShoeType obj)
     {
         if (ModelState.IsValid)
         {
-            _unitOfWork.CoverType.Add(obj);
+            _unitOfWork.ShoeType.Add(obj);
             _unitOfWork.Save();
             TempData["success"] = "CoverType created successfully";
             return RedirectToAction("Index");
@@ -50,7 +50,7 @@ public class CoverTypeController : Controller
         {
             return NotFound();
         }
-        var CoverTypeFromDbFirst = _unitOfWork.CoverType.GetFirstOrDefault(u=>u.Id==id);
+        var CoverTypeFromDbFirst = _unitOfWork.ShoeType.GetFirstOrDefault(u=>u.Id==id);
 
         if (CoverTypeFromDbFirst == null)
         {
@@ -63,12 +63,12 @@ public class CoverTypeController : Controller
     //POST
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Edit(CoverType obj)
+    public IActionResult Edit(ShoeType obj)
     {
        
         if (ModelState.IsValid)
         {
-            _unitOfWork.CoverType.Update(obj);
+            _unitOfWork.ShoeType.Update(obj);
             _unitOfWork.Save();
             TempData["success"] = "CoverType updated successfully";
             return RedirectToAction("Index");
@@ -82,7 +82,7 @@ public class CoverTypeController : Controller
         {
             return NotFound();
         }
-        var CoverTypeFromDbFirst = _unitOfWork.CoverType.GetFirstOrDefault(u=>u.Id==id);
+        var CoverTypeFromDbFirst = _unitOfWork.ShoeType.GetFirstOrDefault(u=>u.Id==id);
 
         if (CoverTypeFromDbFirst == null)
         {
@@ -97,13 +97,13 @@ public class CoverTypeController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult DeletePOST(int? id)
     {
-        var obj = _unitOfWork.CoverType.GetFirstOrDefault(u => u.Id == id);
+        var obj = _unitOfWork.ShoeType.GetFirstOrDefault(u => u.Id == id);
         if (obj == null)
         {
             return NotFound();
         }
 
-        _unitOfWork.CoverType.Remove(obj);
+        _unitOfWork.ShoeType.Remove(obj);
             _unitOfWork.Save();
         TempData["success"] = "CoverType deleted successfully";
         return RedirectToAction("Index");

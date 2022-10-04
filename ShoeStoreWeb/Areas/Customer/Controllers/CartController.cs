@@ -8,7 +8,7 @@ using ShoeStore.Utility;
 using Stripe.Checkout;
 using System.Security.Claims;
 
-namespace BulkyBookWeb.Areas.Customer.Controllers
+namespace ShoeStoreWeb.Areas.Customer.Controllers
 {
     [Area("Customer")]
     [Authorize]

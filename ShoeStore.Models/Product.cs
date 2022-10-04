@@ -10,10 +10,10 @@ namespace ShoeStore.Models
         [Required]
         public string Title { get; set; }
         public string Description { get; set; }
-        [Required]
-        public string ISBN { get; set; }
-        [Required]
-        public string Author { get; set; }
+        //[Required]
+        //public string ISBN { get; set; }
+        //[Required]
+        //public string Author { get; set; }
         [Required]
         [Range(1, 10000)]
         [Display(Name = "List Price")]
@@ -43,9 +43,10 @@ namespace ShoeStore.Models
         public Category Category { get; set; }
 
         [Required]
-        [Display(Name ="Cover Type")]
-        public int CoverTypeId { get; set; }
+        [Display(Name = "Shoe Type")]
+        public int ShoeTypeId { get; set; }
+        [ForeignKey("ShoeTypeId")]
         [ValidateNever]
-        public CoverType CoverType { get; set; }
+        public ShoeType ShoeType { get; set; }
     }
 }

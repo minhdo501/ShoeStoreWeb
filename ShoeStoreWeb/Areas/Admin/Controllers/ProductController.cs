@@ -36,7 +36,7 @@ public class ProductController : Controller
                 Text = i.Name,
                 Value = i.Id.ToString()
             }),
-            CoverTypeList = _unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
+            CoverTypeList = _unitOfWork.ShoeType.GetAll().Select(i => new SelectListItem
             {
                 Text = i.Name,
                 Value = i.Id.ToString()
@@ -113,7 +113,7 @@ public class ProductController : Controller
     [HttpGet]
     public IActionResult GetAll()
     {
-        var productList = _unitOfWork.Product.GetAll(includeProperties: "Category,CoverType");
+        var productList = _unitOfWork.Product.GetAll(includeProperties: "Category,ShoeType");
         return Json(new { data = productList });
     }
 

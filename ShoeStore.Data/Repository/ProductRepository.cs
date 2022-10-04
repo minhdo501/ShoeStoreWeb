@@ -19,15 +19,15 @@ namespace ShoeStore.Data.Repository
             if (objFromDb != null)
             {
                 objFromDb.Title = obj.Title;
-                objFromDb.ISBN = obj.ISBN;
+                //objFromDb.ISBN = obj.ISBN;
                 objFromDb.Price = obj.Price;
                 objFromDb.Price50 = obj.Price50;
                 objFromDb.ListPrice = obj.ListPrice;
                 objFromDb.Price100 = obj.Price100;
                 objFromDb.Description = obj.Description;
                 objFromDb.CategoryId = obj.CategoryId;
-                objFromDb.Author = obj.Author;
-                objFromDb.CoverTypeId = obj.CoverTypeId;
+                //objFromDb.Author = obj.Author;
+                objFromDb.ShoeTypeId = obj.ShoeTypeId;
                 if (obj.ImageUrl != null)
                 {
                     objFromDb.ImageUrl = obj.ImageUrl;  

@@ -10,7 +10,7 @@ namespace ShoeStore.Data.Repository
         {
             _db = db;
             Category = new CategoryRepository(_db);
-            CoverType = new CoverTypeRepository(_db);
+            ShoeType = new ShoeTypeRepository(_db);
             Product = new ProductRepository(_db);
             Company = new CompanyRepository(_db);
             ApplicationUser = new ApplicationUserRepository(_db);
@@ -19,7 +19,7 @@ namespace ShoeStore.Data.Repository
             OrderDetail = new OrderDetailRepository(_db);
         }
         public ICategoryRepository Category { get; private set; }
-        public ICoverTypeRepository CoverType {  get; private set; }
+        public IShoeTypeRepository ShoeType {  get; private set; }
         public IProductRepository Product { get; private set; }
         public ICompanyRepository Company {  get; private set; }
 
@@ -29,7 +29,7 @@ namespace ShoeStore.Data.Repository
         public IOrderHeaderRepository OrderHeader {  get; private set; }
         public IOrderDetailRepository OrderDetail {  get; private set; }
 
-               public void Save()
+        public void Save()
         {
             _db.SaveChanges();
         }

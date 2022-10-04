@@ -2,12 +2,12 @@
 
 namespace ShoeStore.Models
 {
-    public class CoverType
+    public class ShoeType
     {
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Cover Type")]
+        [Display(Name = "Shoe Type")]
         [Required]
         [MaxLength(50)]
         public string Name { get; set; }

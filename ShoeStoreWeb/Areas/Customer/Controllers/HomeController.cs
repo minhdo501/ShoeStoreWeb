@@ -6,7 +6,7 @@ using ShoeStore.Utility;
 using System.Diagnostics;
 using System.Security.Claims;
 
-namespace BulkyBookWeb.Controllers;
+namespace ShoeStoreWeb.Controllers;
 [Area("Customer")]
 public class HomeController : Controller
 {
@@ -21,7 +21,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties:"Category,CoverType");
+        IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties:"Category,ShoeType");
 
         return View(productList);
     }
@@ -32,7 +32,7 @@ public class HomeController : Controller
         {
             Count=1,
             ProductId=productId,
-            Product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == productId, includeProperties: "Category,CoverType"),
+            Product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == productId, includeProperties: "Category,ShoeType"),
         };
 
         return View(cartObj);
