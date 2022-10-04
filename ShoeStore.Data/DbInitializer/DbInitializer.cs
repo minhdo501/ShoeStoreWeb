@@ -49,17 +49,16 @@ namespace ShoeStore.Data.DbInitializer
 
                 _userManager.CreateAsync(new ApplicationUser
                 {
-                    UserName = "admin@dotnetmastery.com",
-                    Email = "admin@dotnetmastery.com",
-                    Name = "Bhrugen Patel",
-                    PhoneNumber = "1112223333",
-                    StreetAddress = "test 123 Ave",
-                    State = "IL",
-                    PostalCode = "23422",
-                    City = "Chicago"
-                }, "Admin123*").GetAwaiter().GetResult();
+                    UserName = "admin@shoestore.com",
+                    Email = "admin@shoestore.com",
+                    Name = "Quang Minh",
+                    PhoneNumber = "0939999999",
+                    StreetAddress = "123 Hung Phu",
+                    PostalCode = "903670",
+                    City = "Can Tho"
+                }, "Admin@123").GetAwaiter().GetResult();
 
-                ApplicationUser user = _db.ApplicationUsers.FirstOrDefault(u => u.Email == "admin@dotnetmastery.com");
+                ApplicationUser user = _db.ApplicationUsers.FirstOrDefault(u => u.Email == "admin@shoestore.com");
 
                 _userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
 
