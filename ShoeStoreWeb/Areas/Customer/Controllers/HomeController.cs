@@ -19,11 +19,22 @@ public class HomeController : Controller
         _unitOfWork = unitOfWork;
     }
 
-    public IActionResult Index()
+    [HttpGet]
+    public IActionResult Index(string keywordToFind)
     {
-        IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties:"Category,ShoeType");
+        if (!string.IsNullOrEmpty(keywordToFind))
+        {
+            var productList = _unitOfWork.Product.GetAll(_ => _.Title.Contains(keywordToFind)
+                || _.Price.ToString().Contains(keywordToFind));
 
-        return View(productList);
+            return View(productList);
+        }
+        else
+        {
+            IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category,ShoeType");
+
+            return View(productList);
+        }
     }
 
     public IActionResult Details(int productId)

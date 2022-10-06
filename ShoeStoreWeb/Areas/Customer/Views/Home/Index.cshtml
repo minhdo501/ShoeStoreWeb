@@ -1,35 +1,51 @@
 ﻿@model IEnumerable<ShoeStore.Models.Product>
 
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <div class="d-flex" style="margin-top: 10px; justify-content: center">
+        <input class="form-control me-sm-2" type="text" placeholder="Search" name="keywordToFind" style="width: 50%">
+        <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+    </div>
+}
 
-<div class="row pb-3">
-	@foreach(var product in Model)
-	{
-		<div class="col-lg-3 col-md-6">
-			<div class="row p-2">
-				<div class="col-12 p-1" style="border:1px solid #008cba; border-radius: 5px;">
-					<div class="card">
-						<img src="@product.ImageUrl" class="card-img-top rounded"/>
+@{
+    if(ViewBag.SearchKey != null)
+    {
+        <span>
+            Search Key: @ViewBag.SearchKey
+        </span>
+    }
+}
 
-						<div class="card-body">
-						<div class="pl-1">
-							<p class="card-title h5 text-primary">@product.Title</p>
-							@*<p class="card-title text-info">by <b>@product.Author</b></p>*@
-						</div>
-						<div class="pl-1">
-							<p>List Price: <strike><b>$@product.ListPrice.ToString("0.00")</b></strike></p>
-						</div>
-						<div class="pl-1">
-							<p>As low as: <b>$@product.Price100.ToString("0.00")</b></p>
-						</div>
-						</div>
-					</div>
-					<div>
-						<a asp-action="Details" class="btn btn-dark form-control" asp-route-productId="@product.Id">
-							Details
-						</a>
-					</div>
-				</div> 
-			</div>
-		</div>
-	}
+<div class="row pb-3" style="margin-top: 10px">
+    @foreach (var product in Model)
+    {
+        <div class="col-lg-3 col-md-6">
+            <div class="row p-2">
+                <div class="col-12 p-1" style="border:1px solid #008cba; border-radius: 5px;">
+                    <div class="card">
+                        <img src="@product.ImageUrl" class="card-img-top rounded" style="width: auto; max-width: 500px; height: 250px" />
+
+                        <div class="card-body">
+                            <div class="pl-1">
+                                <p class="card-title h5 text-primary">@product.Title</p>
+                                @*<p class="card-title text-info">by <b>@product.Author</b></p>*@
+                            </div>
+                            <div class="pl-1">
+                                <p>List Price: <strike><b>$@product.ListPrice.ToString("0.00")</b></strike></p>
+                            </div>
+                            <div class="pl-1">
+                                <p>As low as: <b>$@product.Price100.ToString("0.00")</b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a asp-action="Details" class="btn btn-dark form-control" asp-route-productId="@product.Id">
+                            Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 </div>
