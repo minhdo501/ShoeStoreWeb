@@ -25,7 +25,10 @@ public class HomeController : Controller
         if (!string.IsNullOrEmpty(keywordToFind))
         {
             var productList = _unitOfWork.Product.GetAll(_ => _.Title.Contains(keywordToFind)
-                || _.Price.ToString().Contains(keywordToFind));
+                || _.ListPrice.ToString().Contains(keywordToFind)
+                || _.Price100.ToString().Contains(keywordToFind)
+                || _.ShoeType.Name.Contains(keywordToFind)
+                || _.Category.Name.Contains(keywordToFind));
 
             return View(productList);
         }
